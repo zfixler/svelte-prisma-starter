@@ -3,37 +3,16 @@
 	let password = '';
 </script>
 
-<section>
-	<form method="post">
-		<label for="email">
+<section class="container mx-auto my-10">
+	<form method="post" class="flex flex-col gap-4 max-w-sm mx-auto">
+		<label for="email" class="flex flex-col gap-1">
 			Email address
-			<input type="email" name="email" bind:value={email} required />
+			<input type="email" name="email"  class="rounded shadow py-1 px-2" bind:value={email} required />
 		</label>
-		<label for="password">
+		<label for="password" class="flex flex-col gap-1">
 			Password
-			<input type="password" name="password" bind:value={password} required />
+			<input type="password" name="password" class="rounded shadow py-1 px-2" bind:value={password} required />
 		</label>
-
-		<button type="submit">Login</button>
+		<button type="submit" class="bg-blue-600 text-white py-1 rounded shadow hover:bg-blue-700">Login</button>
 	</form>
 </section>
-
-<style>
-	section {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		height: 75vh;
-	}
-	
-	form {
-		display: flex;
-		flex-direction: column;
-		gap: 16px;
-	}
-
-	label {
-		display: flex;
-		flex-direction: column;
-	}
-</style>
