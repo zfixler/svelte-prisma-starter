@@ -1,9 +1,68 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+html, 
+body {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
 
-@layer base {
-	html {
-		font-family: Arvo, serif;
-	}
+:root {
+	--ff-body: 'Arvo', serif;
+	--fw-bold: 700;
+	--fw-regular: 400;
+
+	--fs-h1: 2.488rem;
+	--fs-h2: 2.074rem;
+	--fs-h3: 1.728rem;
+	--fs-h4: 1.44rem;
+	--fs-h5: 1.2rem;
+	--fs-small: 0.833rem;
+
+	--primary: #2b2d42;
+	--secondary: #edf2f4;
+	--accent: #8d99ae;
+	--accent-dark: #6e7786;
+
+	--box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+
+
+/* Typography */
+
+body {
+	background-color: var(--secondary);
+	color: var(--primary);
+	font-family: var(--ff-body);
+	font-weight: var(--fw-regular);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: var(--ff-head);
+	font-weight: var(--fw-bold);
+	position: relative;
+	width: fit-content;
+}
+
+h1 {
+	font-size: var(--fs-h1);
+}
+
+h2 {
+	font-size: var(--fs-h2);
+}
+
+h3 {
+	font-size: var(--fs-h3);
+}
+
+h4 {
+	font-size: var(--fs-h4);
+}
+
+h5 {
+	font-size: var(--fs-h5);
 }

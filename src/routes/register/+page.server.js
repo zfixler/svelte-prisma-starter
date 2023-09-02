@@ -21,7 +21,7 @@ export const actions = {
 		const lastName = form.get('lastName');
 		const email = form.get('email');
 		const password = form.get('password');
-
+		console.log(request, firstName, lastName, email, password);
 		/**
 		 * Check to see if user already exists in the database.
 		 * @param {string} email

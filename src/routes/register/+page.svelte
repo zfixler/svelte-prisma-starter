@@ -1,4 +1,6 @@
 <script>
+	import { Form } from '$lib/components';
+
 	let firstName = '';
 	let lastName = '';
 	let email = '';
@@ -17,26 +19,65 @@
 	}
 </script>
 
-<form method="post">
-	<label for="firstName">
-		First name
-		<input type="text" name="firstName" bind:value={firstName} required />
-	</label>
-	<label for="lastName">
-		Last name
-		<input type="text" name="lastName" bind:value={lastName} required />
-	</label>
-	<label for="email">
-		Email address
-		<input type="email" name="email" bind:value={email} required />
-	</label>
-	<label for="password">
-		Password
-		<input type="password" name="password" bind:value={password} required />
-	</label>
-	<label for="confirmPassword">
-		Confirm Password
-		<input type="confirmPassword" name="confirmPassword" bind:value={confirmPassword} required />
-	</label>
-	<button type="submit" disabled={!validatePassword(password, confirmPassword)}>Submit</button>
-</form>
+<section class="section">
+	<h1>Register an account. <span class="subtext">Start posting and commenting today.</span></h1>
+	<Form.Form method="POST" action="/register">
+		<Form.Input
+			type="text"
+			name="firstName"
+			label="First name"
+			bind:value={firstName}
+			required={true}
+		/>
+		<Form.Input
+			type="text"
+			name="lastName"
+			label="Last name"
+			bind:value={lastName}
+			required={true}
+		/>
+		<Form.Input type="email" name="email" label="Email" bind:value={email} required={true} />
+		<Form.Input
+			type="password"
+			name="password"
+			label="Password"
+			bind:value={password}
+			required={true}
+		/>
+		<Form.Input
+			type="password"
+			name="password"
+			label="Confirm password"
+			bind:value={confirmPassword}
+			required={true}
+		/>
+		<Form.Button type="submit" disabled={!validatePassword(password, confirmPassword)}
+			>Submit</Form.Button
+		>
+	</Form.Form>
+	<a href="/login" class="link">Already have an account? Click here to login.</a>
+</section>
+
+<style>
+	.section {
+		width: min(600px, 90%);
+		padding: 36px;
+		border-radius: 4px;
+		margin: 0 auto;
+	}
+
+	.subtext {
+		font-weight: normal;
+		display: block;
+		margin-top: 8px;
+		font-size: var(--fs-h2);
+	}
+
+	.link {
+		text-decoration: none;
+		color: inherit;
+		display: block;
+		margin-top: 8px;
+		text-align: center;
+	}
+</style>

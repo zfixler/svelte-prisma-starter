@@ -1,18 +1,39 @@
 <script>
+	import { Form } from '$lib/components';
 	let email = '';
 	let password = '';
 </script>
 
-<section class="container mx-auto my-10">
-	<form method="post" class="flex flex-col gap-4 max-w-sm mx-auto">
-		<label for="email" class="flex flex-col gap-1">
-			Email address
-			<input type="email" name="email"  class="rounded shadow py-1 px-2" bind:value={email} required />
-		</label>
-		<label for="password" class="flex flex-col gap-1">
-			Password
-			<input type="password" name="password" class="rounded shadow py-1 px-2" bind:value={password} required />
-		</label>
-		<button type="submit" class="bg-blue-600 text-white py-1 rounded shadow hover:bg-blue-700">Login</button>
-	</form>
+<section class="section">
+	<h1>Welcome back! <span class="subtext">Login below to get started.</span></h1>
+	<Form.Form action="/login">
+			<Form.Input name="email" label="Email" type="email" bind:value={email}/>
+			<Form.Input name="password" label="Password" type="password" bind:value={password}/>
+		<Form.Button type="submit" disabled={!(email && password)}>Login</Form.Button>
+	</Form.Form>
+	<a href="/register" class="link">Need an account? Click here to register.</a>
 </section>
+
+<style>
+	.section {
+		width: min(600px, 90%);
+		padding: 36px;
+		border-radius: 4px;
+		margin: 0 auto;
+	}
+
+	.subtext {
+		font-weight: normal;
+		display: block;
+		margin-top: 8px;
+		font-size: var(--fs-h2);
+	}
+
+	.link {
+		text-decoration: none;
+		color: inherit;
+		display: block;
+		margin-top: 8px;
+		text-align: center;
+	}
+</style>
