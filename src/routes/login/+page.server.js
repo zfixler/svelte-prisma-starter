@@ -1,7 +1,7 @@
 import prisma from '$lib/prisma';
 import bcrypt from 'bcrypt';
 import { redirect, fail } from '@sveltejs/kit';
-import { getExpirationDateFromSeconds } from '$lib/utils';
+import { getExpirationDateFromSeconds } from '$lib/utils/backend';
 
 /**
  * @typedef { import("@prisma/client").Session } Session
@@ -27,7 +27,7 @@ export const actions = {
 		});
 
 		if (!currentUser) {
-			throw fail(400, { email, incorrect: true });
+			return fail(400, { email, incorrect: true });
 		}
 
 		if (await bcrypt.compare(String(password), currentUser.password)) {
@@ -52,5 +52,6 @@ export const actions = {
 
 			throw redirect(303, '/app/profile');
 		}
+		return fail(400, { password, incorrect: true });
 	},
 };

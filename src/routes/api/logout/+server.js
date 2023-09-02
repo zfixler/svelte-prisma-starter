@@ -1,5 +1,5 @@
 import { error } from '@sveltejs/kit';
-import { deleteUserSessions } from '$lib/utils';
+import { deleteUserSessions } from '$lib/utils/backend';
 
 /** @type {import('./$types').RequestHandler} */
 export async function POST({ cookies, locals }) {
