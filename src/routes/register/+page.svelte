@@ -21,39 +21,13 @@
 
 <section class="section">
 	<h1>Register an account. <span class="subtext">Start posting and commenting today.</span></h1>
-	<Form.Form method="POST" action="/register">
-		<Form.Input
-			type="text"
-			name="firstName"
-			label="First name"
-			bind:value={firstName}
-			required={true}
-		/>
-		<Form.Input
-			type="text"
-			name="lastName"
-			label="Last name"
-			bind:value={lastName}
-			required={true}
-		/>
-		<Form.Input type="email" name="email" label="Email" bind:value={email} required={true} />
-		<Form.Input
-			type="password"
-			name="password"
-			label="Password"
-			bind:value={password}
-			required={true}
-		/>
-		<Form.Input
-			type="password"
-			name="password"
-			label="Confirm password"
-			bind:value={confirmPassword}
-			required={true}
-		/>
-		<Form.Button type="submit" disabled={!validatePassword(password, confirmPassword)}
-			>Submit</Form.Button
-		>
+	<Form.Form method="post">
+		<Form.Input type="text" label="First name" value={firstName} required={true} />
+		<Form.Input type="text" label="Last name" value={lastName} required={true} />
+		<Form.Input type="email" label="Email" value={email} required={true} />
+		<Form.Input type="password" label="Password" value={password} required={true} />
+		<Form.Input type="password" label="Confirm password" value={confirmPassword} required={true} />
+		<Form.Button type="submit" disabled={!validatePassword(password, confirmPassword)}>Submit</Form.Button>
 	</Form.Form>
 	<a href="/login" class="link">Already have an account? Click here to login.</a>
 </section>
